@@ -13,10 +13,14 @@ function Book(title, author, pages, read) {
     }
 }
 
-function addBook() {
-    const newBook = new Book("Atomic Habits", "James Clear", 200, true)
+function addBook(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook)
 }
 
-addBook()
-console.log(myLibrary)
+function displayBook() {
+    myLibrary.forEach(book => {
+        console.log(book)
+    })
+}
+
