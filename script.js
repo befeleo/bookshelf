@@ -40,6 +40,7 @@ function createBookShelf(book) {
     const bookAuthor = document.createElement('p')
     bookAuthor.textContent = `${book.author}`
 
+
     const bookPages = document.createElement('p')
     bookPages.textContent = `${book.pages}`
 
@@ -54,12 +55,19 @@ function createBookShelf(book) {
     bookReadStatus.addEventListener('click', () => {
         book.read = !book.read;
         update();
-    });
+    })
+
+    const removeBook = document.createElement('p');
+    removeBook.innerHTML = `<i data-lucide="trash-2"></i>`;
+    lucide.createIcons();
+
+    removeBook.addEventListener('click', () => bookShelf.remove())
 
     bookShelf.appendChild(bookTitle)
     bookShelf.appendChild(bookAuthor)
     bookShelf.appendChild(bookPages)
     bookShelf.appendChild(bookReadStatus)
+    bookShelf.appendChild(removeBook)
 
     bookList.appendChild(bookShelf)
 }
