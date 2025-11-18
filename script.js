@@ -1,5 +1,8 @@
 const bookLibrary = document.querySelector('.book-library')
 const bookList = document.querySelector('.book-list')
+const dialog = document.querySelector('dialog')
+const addBookBtn = document.querySelector('.add-book')
+const cancelBtn = document.querySelector('.cancel')
 
 const myLibrary = [];
 
@@ -75,3 +78,10 @@ function createBookShelf(book) {
 addBook("Atomic Habits", "James Clear", 200, true)
 addBook("Ego is the enemy", "Ryan Holiday", 300, false)
 addBook("The subtle arts of not giving a fuck", "Ryan Holiday", 200, true)
+
+addBookBtn.addEventListener('click', () => {
+    dialog.showModal();
+})
+cancelBtn.addEventListener('click', () => {
+    dialog.close();
+})
