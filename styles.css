@@ -73,3 +73,53 @@ body {
 a {
   color: #000;
 }
+
+dialog {
+  height: 500px;
+  width: 500px;
+  margin: auto;
+  border: none;
+}
+
+.cancel {
+  margin: 10px;
+  margin-bottom: 0;
+  float: right;
+  border: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 500px;
+  padding: 1rem 2rem;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+input {
+  padding: 0.4rem;
+}
+fieldset {
+  border: none;
+  padding: 1.4rem 0;
+}
+fieldset input {
+  margin-right: 1rem;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.submit-book {
+  border: none;
+  padding: 10px;
+  background-color: #b8860b;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+}
