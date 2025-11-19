@@ -3,6 +3,7 @@ const bookList = document.querySelector('.book-list')
 const dialog = document.querySelector('dialog')
 const addBookBtn = document.querySelector('.add-book')
 const cancelBtn = document.querySelector('.cancel')
+const submitBookBtn = document.querySelector('.submit-book')
 
 const myLibrary = [];
 
@@ -26,7 +27,6 @@ function addBook(title, author, pages, read) {
     createBookShelf(newBook)
 }
 
-
 function displayBook() {
     myLibrary.forEach(book => {
         console.log(book)
@@ -42,7 +42,6 @@ function createBookShelf(book) {
 
     const bookAuthor = document.createElement('p')
     bookAuthor.textContent = `${book.author}`
-
 
     const bookPages = document.createElement('p')
     bookPages.textContent = `${book.pages}`
@@ -74,14 +73,33 @@ function createBookShelf(book) {
 
     bookList.appendChild(bookShelf)
 }
+function getBookData(event) {
+    event.preventDefault();
 
-addBook("Atomic Habits", "James Clear", 200, true)
-addBook("Ego is the enemy", "Ryan Holiday", 300, false)
-addBook("The subtle arts of not giving a fuck", "Ryan Holiday", 200, true)
+    const titleValue = document.getElementById('title').value
+    const authorValue = document.getElementById('author').value
+    const pagesValue = document.getElementById('pages').value
+    const checkedRadio = document.querySelector('input[name="read-status"]:checked')
+
+    const readValue = checkedRadio.value === 'read'
+    if (!titleValue || !authorValue || !pagesValue || !checkedRadio) return
+
+    addBook(titleValue, authorValue, pagesValue, readValue);
+
+    event.target.form.reset();
+    dialog.close();
+}
 
 addBookBtn.addEventListener('click', () => {
     dialog.showModal();
 })
+
 cancelBtn.addEventListener('click', () => {
     dialog.close();
 })
+
+submitBookBtn.addEventListener('click', (event) => getBookData(event))
+
+addBook("Atomic Habits", "James Clear", 200, true)
+addBook("Ego is the enemy", "Ryan Holiday", 300, false)
+addBook("The subtle arts of not giving a fuck", "Ryan Holiday", 200, true)
