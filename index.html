@@ -8,11 +8,11 @@
   </head>
   <body>
     <div class="top">
-      <div class="left">You have 3 Books</div>
+      <div class="left">You have <span class="total-books"></span> Books</div>
       <div class="right">
         <button class="add-book">+ Add new books</button>
         <a href="https://github.com/befeleo/library.git" target="_blank">
-          <i data-lucide="github"></i>
+          <img src="icons/github.svg" alt="github icon" />
         </a>
       </div>
     </div>
@@ -30,7 +30,7 @@
 
     <dialog>
       <button type="button" class="cancel">
-        <i data-lucide="x"></i>
+        <img src="icons/x.svg" alt="cancel icon" />
       </button>
       <form>
         <div>
@@ -69,10 +69,6 @@
       </form>
     </dialog>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
     <script src="script.js " defer></script>
   </body>
 </html>

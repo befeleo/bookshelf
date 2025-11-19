@@ -58,7 +58,7 @@ function createBookShelf(book) {
     })
 
     const removeBook = document.createElement('p');
-    removeBook.innerHTML = `<i data-lucide="trash-2"></i>`;
+    removeBook.innerHTML = `<img src="icons/trash.svg" alt="remove icon" />`;
 
     removeBook.addEventListener('click', () => {
         bookShelf.remove()
@@ -75,7 +75,6 @@ function createBookShelf(book) {
     bookShelf.appendChild(removeBook)
 
     bookList.appendChild(bookShelf)
-    lucide.createIcons();
 }
 
 function getBookData(event) {
