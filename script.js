@@ -45,6 +45,7 @@ function createBookShelf(book) {
     bookPages.textContent = `${book.pages}`
 
     const bookReadStatus = document.createElement('p')
+    bookReadStatus.classList.add('read-status')
 
     function update() {
         bookReadStatus.textContent = book.read ? "Read" : "Not read"
@@ -102,6 +103,6 @@ cancelBtn.addEventListener('click', () => {
 
 submitBookBtn.addEventListener('click', (event) => getBookData(event))
 
-addBook("Atomic Habits", "James Clear", 200, true)
-addBook("Ego is the enemy", "Ryan Holiday", 300, false)
-addBook("The subtle arts of not giving a fuck", "Ryan Holiday", 200, true) 
+addBook("Atomic Habits", "James Clear", 320, true)
+addBook("Ego is the enemy", "Ryan Holiday", 226, false)
+addBook("The Alchemist", "Paulo Coelho", 208, true) 
