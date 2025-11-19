@@ -13,18 +13,22 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.id = crypto.randomUUID();
-
-    this.info = function () {
-        this.readStatus = this.read ? "read" : "not read";
-        return `${this.title} ${this.author} ${this.pages} ${this.readStatus} ${this.id}`
-    }
 }
+
+function displayTotalBooks() {
+    const totalBook = document.querySelector('.total-books');
+    totalBook.textContent = myLibrary.length;
+}
+
+displayTotalBooks()
 
 function addBook(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read)
 
     myLibrary.push(newBook)
+
     createBookShelf(newBook)
+    displayTotalBooks();
 }
 
 function createBookShelf(book) {
@@ -56,7 +60,13 @@ function createBookShelf(book) {
     const removeBook = document.createElement('p');
     removeBook.innerHTML = `<i data-lucide="trash-2"></i>`;
 
-    removeBook.addEventListener('click', () => bookShelf.remove())
+    removeBook.addEventListener('click', () => {
+        bookShelf.remove()
+        const index = myLibrary.findIndex(b => b.id === book.id)
+        if (index > -1) myLibrary.splice(index, 1)
+
+        displayTotalBooks()
+    })
 
     bookShelf.appendChild(bookTitle)
     bookShelf.appendChild(bookAuthor)
@@ -69,20 +79,18 @@ function createBookShelf(book) {
 }
 
 function getBookData(event) {
-    event.preventDefault();
-
     const titleValue = document.getElementById('title').value
     const authorValue = document.getElementById('author').value
     const pagesValue = document.getElementById('pages').value
     const checkedRadio = document.querySelector('input[name="read-status"]:checked')
-
     const readValue = checkedRadio.value === 'read'
-    if (!titleValue || !authorValue || !pagesValue || !checkedRadio) return
 
-    addBook(titleValue, authorValue, pagesValue, readValue);
+    if (titleValue && authorValue && pagesValue && checkedRadio) {
+        addBook(titleValue, authorValue, pagesValue, readValue);
 
-    event.target.form.reset();
-    dialog.close();
+        event.target.form.reset();
+        dialog.close();
+    }
 }
 
 addBookBtn.addEventListener('click', () => {
@@ -97,4 +105,4 @@ submitBookBtn.addEventListener('click', (event) => getBookData(event))
 
 addBook("Atomic Habits", "James Clear", 200, true)
 addBook("Ego is the enemy", "Ryan Holiday", 300, false)
-addBook("The subtle arts of not giving a fuck", "Ryan Holiday", 200, true)
+addBook("The subtle arts of not giving a fuck", "Ryan Holiday", 200, true) 
