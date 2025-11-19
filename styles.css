@@ -42,7 +42,10 @@ body {
   grid-template-columns: repeat(5, 1fr);
   text-align: center;
   margin: 0 10% 25px;
-  font-size: 1.7rem;
+}
+
+.book-row {
+  font-size: 1.9rem;
   font-weight: 900;
 }
 
@@ -54,6 +57,7 @@ body {
 
 .book-shelf {
   font-size: 1.5rem;
+  font-weight: 500;
   border-bottom: 1px #222 solid;
   padding: 10px 0;
   margin: 0;
@@ -63,7 +67,7 @@ body {
   border: none;
   border-radius: 10px;
   padding: 9px 20px;
-  background-color: #b8860b;
+  background-color: #d4a017;
   color: #fff;
   font-size: 1.2rem;
   font-weight: 900;
@@ -87,6 +91,7 @@ dialog {
   float: right;
   border: none;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -100,10 +105,12 @@ form {
 input {
   padding: 0.4rem;
 }
+
 fieldset {
   border: none;
   padding: 1.4rem 0;
 }
+
 fieldset input {
   margin-right: 1rem;
 }
@@ -117,9 +124,20 @@ form > div {
 .submit-book {
   border: none;
   padding: 10px;
-  background-color: #b8860b;
+  background-color: #d4a017;
+
   color: #fff;
   font-size: 1.2rem;
   font-weight: 900;
+  cursor: pointer;
+}
+
+.add-book:hover,
+.submit-book:hover {
+  background-color: #b8860b;
+}
+
+img:hover,
+.read-status:hover {
   cursor: pointer;
 }
