@@ -22,15 +22,9 @@ function Book(title, author, pages, read) {
 
 function addBook(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read)
-    myLibrary.push(newBook)
-    displayBook(newBook)
-    createBookShelf(newBook)
-}
 
-function displayBook() {
-    myLibrary.forEach(book => {
-        console.log(book)
-    })
+    myLibrary.push(newBook)
+    createBookShelf(newBook)
 }
 
 function createBookShelf(book) {
@@ -61,7 +55,6 @@ function createBookShelf(book) {
 
     const removeBook = document.createElement('p');
     removeBook.innerHTML = `<i data-lucide="trash-2"></i>`;
-    lucide.createIcons();
 
     removeBook.addEventListener('click', () => bookShelf.remove())
 
@@ -72,7 +65,9 @@ function createBookShelf(book) {
     bookShelf.appendChild(removeBook)
 
     bookList.appendChild(bookShelf)
+    lucide.createIcons();
 }
+
 function getBookData(event) {
     event.preventDefault();
 
